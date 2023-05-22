@@ -1,12 +1,20 @@
 import { useState } from "react";
 import AddTodo from "./components/AddTodo/AddTodo";
 
-function App() {
-  const [todo, setTodo] = useState([]);
+const App = () => {
+  const [todos, setTodos] = useState([]);
+
+  function handleTask(newObj) {
+    const newTodos = [...todos]
+
+    newTodos.push(newObj)
+
+    setTodos(newTodos)
+  }
 
   return (
     <>
-    <AddTodo />
+    <AddTodo handleTask={handleTask} />
     </>
   );
 }
