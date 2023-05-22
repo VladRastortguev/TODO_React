@@ -1,9 +1,25 @@
-import React from 'react'
+import React from "react";
+import "./TodoList.css";
 
-const TodoList = () => {
+const TodoList = ({ todos, changeStatus }) => {
+  let style = {
+    color: "red",
+    listStyleType: "none",
+  };
+
   return (
-    <div></div>
-  )
-}
+    <>
+      <h2>TODO List Component</h2>
+      <ul style={style}>
+        {todos.map((item) => (
+          <li key={item.id} className={item.status ? 'complited' : ""}>
+            <input type="checkbox" onChange={(() => changeStatus(item.id))}/>
+            {item.task}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
 
-export default TodoList
+export default TodoList;
