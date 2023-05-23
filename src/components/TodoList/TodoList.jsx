@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoList.css";
 
-const TodoList = ({ todos, changeStatus }) => {
+const TodoList = ({ todos, changeStatus, getEditedTask }) => {
   let style = {
     color: "red",
     listStyleType: "none",
@@ -15,6 +15,7 @@ const TodoList = ({ todos, changeStatus }) => {
           <li key={item.id} className={item.status ? 'complited' : ""}>
             <input type="checkbox" onChange={(() => changeStatus(item.id))}/>
             {item.task}
+            <button onClick={() => getEditedTask(item.id)}>Edit Task</button>
           </li>
         ))}
       </ul>
