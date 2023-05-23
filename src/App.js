@@ -50,6 +50,14 @@ const App = () => {
     setEditedObj(null)
   }
 
+  function deleteTask(id) {
+    let newTodos = [...todos]
+
+    newTodos = newTodos.filter((item) => item.id !== id)
+
+    setTodos(newTodos)
+  }
+
   return (
     <>
       <AddTodo handleTask={handleTask} />
@@ -57,6 +65,7 @@ const App = () => {
         todos={todos}
         changeStatus={changeStatus}
         getEditedTask={getEditedTask}
+        deleteTask={deleteTask}
       />
       {editedObj ? (
         <EditTodo editedObj={editedObj} saveChanges={saveChanges} />

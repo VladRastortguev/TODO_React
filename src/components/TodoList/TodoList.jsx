@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoList.css";
 
-const TodoList = ({ todos, changeStatus, getEditedTask }) => {
+const TodoList = ({ todos, changeStatus, getEditedTask, deleteTask }) => {
   let style = {
     color: "red",
     listStyleType: "none",
@@ -16,6 +16,7 @@ const TodoList = ({ todos, changeStatus, getEditedTask }) => {
             <input type="checkbox" onChange={(() => changeStatus(item.id))}/>
             {item.task}
             <button onClick={() => getEditedTask(item.id)}>Edit Task</button>
+            <button onClick={() => deleteTask(item.id)}>Delete Task</button>
           </li>
         ))}
       </ul>
